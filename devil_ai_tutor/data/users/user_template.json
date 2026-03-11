@@ -1,0 +1,28 @@
+{
+  "telegram_id": "1001",
+  "username": "AI_Noob_01",
+  "enrollment_date": "2026-03-10",
+  "level": "L1_基础扫盲期",
+  "actual_score": 0,
+  "total_score": 0.00,
+  "current_week_state": {
+    "week_number": 1,
+    "current_topic": "K1_1",
+    "estimated_score": 60,
+    "interactive_bonus": 0,
+    "daily_answered": false,
+    "missed_days": 0,
+    "extra_practice_count": 0,
+    "feynman_used_today": false,
+    "hidden_challenge_used_this_week": false
+  },
+  "weekly_scores": [],
+  "knowledge_mastery": {
+    "K1_1": {
+      "status": "learning",
+      "mastery_level": 0,
+      "last_tested": null
+    }
+  },
+  "history_logs": []
+}
