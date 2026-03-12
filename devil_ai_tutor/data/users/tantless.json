@@ -1,7 +1,8 @@
 {
-  "telegram_id": "1001",
-  "username": "AI_Noob_01",
-  "enrollment_date": "2026-03-10",
+  "telegram_id": "8606010466",
+  "username": "tantless",
+  "display_name": "Tantless",
+  "enrollment_date": "2026-03-12",
   "level": "L1_基础扫盲期",
   "actual_score": 0,
   "total_score": 0.00,
@@ -26,8 +27,20 @@
     "K1_1": {
       "status": "learning",
       "mastery_level": 0,
-      "last_tested": null
+      "last_tested": "2026-03-12"
     }
   },
-  "history_logs": []
+  "history_logs": [
+    {
+      "date": "2026-03-12",
+      "event": "注册魔鬼 AI 导师训练营",
+      "action": "enrollment"
+    },
+    {
+      "date": "2026-03-12",
+      "event": "下发今日考题（K1_1 LLM 核心原理与 Tokenization）",
+      "action": "daily_quiz_sent",
+      "topic": "K1_1"
+    }
+  ]
 }

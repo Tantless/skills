@@ -1,5 +1,5 @@
 {
-  "telegram_id": "yourid",
+  "telegram_id": "6491617158",
   "username": "brand14757",
   "display_name": "李 虎成",
   "enrollment_date": "2026-03-10",
@@ -8,13 +8,18 @@
   "total_score": 0.00,
   "current_week_state": {
     "week_number": 1,
-    "current_topic": "K1_1",
-    "estimated_score": 50,
+    "current_topic": "K1_3",
+    "estimated_score": 60,
     "interactive_bonus": 0,
     "daily_answered": false,
+    "daily_answered_date": null,
+    "week_daily_record": [0, 1, 0, 0, 0, 0, 0],
+    "saturday_exam_answered": false,
+    "saturday_exam_answered_date": null,
     "missed_days": 1,
     "extra_practice_count": 0,
     "feynman_used_today": false,
+    "feynman_used_date": null,
     "hidden_challenge_used_this_week": false
   },
   "weekly_scores": [],
@@ -23,6 +28,16 @@
       "status": "learning",
       "mastery_level": 0,
       "last_tested": null
+    },
+    "K1_2": {
+      "status": "learning",
+      "mastery_level": 0.6,
+      "last_tested": "2026-03-11"
+    },
+    "K1_3": {
+      "status": "learning",
+      "mastery_level": 0,
+      "last_tested": "2026-03-12"
     }
   },
   "history_logs": [
@@ -37,6 +52,33 @@
       "action": "penalty",
       "score_change": -10,
       "new_estimated_score": 50
+    },
+    {
+      "date": "2026-03-11",
+      "event": "下发今日考题（K1_2 提示词工程）",
+      "action": "daily_quiz_sent",
+      "topic": "K1_2"
+    },
+    {
+      "date": "2026-03-11",
+      "event": "23:59 提交 K1_2 答案，评分 60/100",
+      "action": "daily_quiz_answered",
+      "topic": "K1_2",
+      "score": 60,
+      "feedback": "思路对了，但细节不够扎实。Few-Shot 要能直接用，不是'给例子'这么简单。"
+    },
+    {
+      "date": "2026-03-11",
+      "event": "K1_2 答题得分 60 分，平时分恢复至 60",
+      "action": "score_update",
+      "score_change": 10,
+      "new_estimated_score": 60
+    },
+    {
+      "date": "2026-03-12",
+      "event": "下发今日考题（K1_3 Function Calling）",
+      "action": "daily_quiz_sent",
+      "topic": "K1_3"
     }
   ]
 }
