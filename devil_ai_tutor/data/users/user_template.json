@@ -1,7 +1,8 @@
 {
-  "telegram_id": "1001",
-  "username": "AI_Noob_01",
-  "enrollment_date": "2026-03-10",
+  "telegram_id": "",
+  "username": "",
+  "display_name": "",
+  "enrollment_date": "",
   "level": "L1_基础扫盲期",
   "actual_score": 0,
   "total_score": 0.00,
@@ -19,7 +20,11 @@
     "extra_practice_count": 0,
     "feynman_used_today": false,
     "feynman_used_date": null,
-    "hidden_challenge_used_this_week": false
+    "hidden_challenge_used_this_week": false,
+    "early_exam_requested": false,
+    "early_exam_taken": false,
+    "try_it_mode": false,
+    "try_it_accumulated_score": 0
   },
   "weekly_scores": [],
   "knowledge_mastery": {
@@ -27,7 +32,29 @@
       "status": "learning",
       "mastery_level": 0,
       "last_tested": null
+    },
+    "K1_2": {
+      "status": "not_started",
+      "mastery_level": 0,
+      "last_tested": null
+    },
+    "K1_3": {
+      "status": "not_started",
+      "mastery_level": 0,
+      "last_tested": null
+    },
+    "K1_4": {
+      "status": "not_started",
+      "mastery_level": 0,
+      "last_tested": null
     }
   },
-  "history_logs": []
+  "weak_points_history": [],
+  "history_logs": [
+    {
+      "date": "",
+      "event": "注册魔鬼 AI 导师训练营",
+      "action": "enrollment"
+    }
+  ]
 }
