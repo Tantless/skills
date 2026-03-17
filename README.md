@@ -1,69 +1,87 @@
-# 魔鬼 AI 导师 (Devil AI Tutor)
+# 魔鬼 AI 导师
 
-一个严格监督学习的 AI 导师 Skill，通过 30 天魔鬼训练营将你从 AI 门外汉培养成 AI 应用工程师。
+> 30 天魔鬼训练营，从 AI 门外汉到 AI 应用工程师
 
-## 特性
+一个严格监督学习的 AI 导师 Skill，采用三轨制计分系统和费曼学习法，通过每日练习和周考实现快速进阶。
 
-- 🔥 **严厉导师人设**：毒舌但专业的 The Auditor，拒绝浅表学习
-- 📊 **三轨制计分**：平时分 + 实际段位分 + 总分，全方位评估学习进度
-- 📚 **30 天课程**：LLM 基础 → RAG → Agent → 工程化，循序渐进
-- ⏰ **自动化监督**：每日 9:30 出题，周六大考，自动结算晋级
-- 🎯 **费曼学习法**：强制复述 + 隐藏挑战，深度理解核心概念
+## ✨ 特性
 
-## 快速启动
+- 🔥 **严厉导师人设** - 毒舌但专业的 The Auditor，拒绝浅表学习
+- 📊 **三轨制计分** - 平时分 + 段位分 + 总分，全方位评估进度
+- 📚 **30 天课程** - LLM 基础 → RAG → Agent → 工程化
+- ⏰ **自动化监督** - 每日 9:30 出题，周六大考，自动晋级
+- 🎯 **费曼学习法** - 强制复述 + 隐藏挑战，深度理解
 
-1. 将此 Skill 放入 OpenClaw 的 skill 目录(.openclaw\workspace\skills\devil_ai_tutor)
-2. 确保 OpenClaw 能正常加载该 Skill(询问openclaw是否能看到该skill)
-3. 向 OpenClaw 说：`我想注册 tutor 计划`
-4. 配置定时任务（见下方）
+## 🚀 快速开始
 
-### HEARTBEAT.md
-  - 你可以手动将`Skills\HEARTBEAT-example.md`中的内容添加到你openclaw的`.openclaw\workspace\HEARTBEAT.md`之后
-  - 或者你可以直接告诉openclaw，`请将HEARTBEAT-example.md的内容添加到我openclaw的HEARTBEAT.md之中`
+### 1. 安装
 
-### jobs.json
-  - 同样的，你可以手动将`Skills\jobs-example.json`的内容添加到你的`.openclaw\cron`目录下作为`jobs.json`
-  - 或者，你可以直接告诉openclaw,`请帮我将jobs-example.json中的时钟内容添加到openclaw的cron中`
+将此 Skill 放入 Claude Code 的 skills 目录：
 
-## 计分规则
-**平时预估分**（初始 60）
-- 每日题答对 +5
-- 主动加练 +2（首次 +4）
-- 费曼复述 +3~+8
-- 超时未交 -10
+```bash
+~/.claude/skills/devil_ai_tutor/
+```
 
-**实际段位分**（每周六结算）
-- 公式：`大考得分 × 0.7 + 平时分 × 0.3`
-- ≥60 晋级，<60 留级
+### 2. 注册
 
-**总分**（0-100）
-- 每周晋级时：`总分 += 实际分 / 4`
-- 代表成为 AI 应用工程师的整体能力
+在你的telegram上对它说:
 
-## 文件结构
+```
+我想注册 tutor 计划
+```
+- 注意到`Skills\devil_ai_tutor\data\users\`目录下有以你名字为文件名的json数据文件后，代表成功注册
+
+### 3. 配置定时任务
+
+**方式一：自动配置**
+对你的 openclaw 说:
+```
+请将 HEARTBEAT-example.md 添加到 HEARTBEAT.md
+请将 jobs-example.json 添加到 cron 配置
+```
+
+**方式二：手动配置**
+- 复制 `HEARTBEAT-example.md` 内容到 `~/.claude/workspace/HEARTBEAT.md`
+- 复制 `jobs-example.json` 到 `~/.claude/cron/jobs.json`
+
+## 📊 计分系统
+
+| 类型 | 说明 | 规则 |
+|------|------|------|
+| **平时分** | 日常练习积累 | 答题 +5，加练 +2，复述 +3~8，超时 -10 |
+| **段位分** | 每周六结算 | `大考 × 0.7 + 平时 × 0.3`，≥60 晋级 |
+| **总分** | 整体能力 | 晋级时 `+= 段位分 / 4`，满分 100 |
+
+## 📚 课程大纲
+
+| 周次 | 主题 | 内容 |
+|------|------|------|
+| Week 1 | LLM 基础 | 核心原理、Prompt 工程、Function Calling |
+| Week 2 | RAG 系统 | 向量数据库、文档切分、检索优化 |
+| Week 3 | Agent 开发 | 多代理协同、持久化记忆、工具调用 |
+| Week 4 | 工程化 | 评估、微调、部署监控、未来趋势 |
+
+## 📁 项目结构
 
 ```
 devil_ai_tutor/
-├── SKILL.md              # 系统规则和技术实现
-├── prompt.md             # 角色人设和语言风格
+├── SKILL.md                    # 系统规则和技术实现
+├── prompt.md                   # 角色人设和语言风格
 ├── data/
-│   ├── syllabus.json     # 30 天课程大纲
-│   └── users/            # 用户学习数据
+│   ├── syllabus.json          # 30 天课程大纲
+│   └── users/                 # 用户学习数据
 │       ├── user_template.json
 │       └── {username}.json
+├── HEARTBEAT-example.md       # 定时任务配置示例
+├── jobs-example.json          # Cron 配置示例
 └── README.md
 ```
 
-## 课程大纲
+## ⚠️ 注意事项
 
-- **Week 1**：LLM 核心原理、Prompt 工程、Function Calling
-- **Week 2**：RAG 全流程、向量数据库、文档切分
-- **Week 3**：Agent 模式、多代理协同、持久化记忆
-- **Week 4**：AI 评估、微调、部署监控、未来趋势
+- 导师风格严厉，适合自律学习者
+- 详细规则见 [SKILL.md](SKILL.md)
 
-## 注意事项
+## 📄 License
 
-- 导师风格严厉，不鼓励不妥协，适合自律学习者
-- 每日 20:00-24:00 必须答题，超时扣 10 分
-- 留级不累加总分，鼓励认真学习
-- 详细规则见 `SKILL.md` 和 `prompt.md`
+MIT
