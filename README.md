@@ -16,33 +16,35 @@
 
 ### 1. 安装
 
-将此 Skill 放入 Claude Code 的 skills 目录：
+将此 Skill 放入 OpenClaw 的 skills 目录：
 
 ```bash
-~/.claude/skills/devil_ai_tutor/
+.openclaw/workspace/skills/devil_ai_tutor/
 ```
 
 ### 2. 注册
 
-在你的telegram上对它说:
+在 Telegram 上向 OpenClaw 说：
 
 ```
 我想注册 tutor 计划
 ```
-- 注意到`Skills\devil_ai_tutor\data\users\`目录下有以你名字为文件名的json数据文件后，代表成功注册
+
+确认注册成功：检查 `skills/devil_ai_tutor/data/users/` 目录下是否生成了以你名字命名的 JSON 文件。
 
 ### 3. 配置定时任务
 
-**方式一：自动配置**
-对你的 openclaw 说:
+**方式一：自动配置**（推荐）
+
+在 Telegram 上向 OpenClaw 说：
 ```
 请将 HEARTBEAT-example.md 添加到 HEARTBEAT.md
 请将 jobs-example.json 添加到 cron 配置
 ```
 
 **方式二：手动配置**
-- 复制 `HEARTBEAT-example.md` 内容到 `~/.claude/workspace/HEARTBEAT.md`
-- 复制 `jobs-example.json` 到 `~/.claude/cron/jobs.json`
+- 复制 `HEARTBEAT-example.md` 内容到 `.openclaw/workspace/HEARTBEAT.md`
+- 复制 `jobs-example.json` 到 `.openclaw/cron/jobs.json`
 
 ## 📊 计分系统
 
