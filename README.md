@@ -38,8 +38,8 @@
 
 在 Telegram 上向 OpenClaw 说：
 ```
-请将 HEARTBEAT-example.md 添加到 HEARTBEAT.md
-请将 jobs-example.json 添加到 cron 配置
+请将 HEARTBEAT-example.md 添加到 openclaw 的 HEARTBEAT.md 之中
+请将 jobs-example.json 添加到 openclaw 的 cron 配置
 ```
 
 **方式二：手动配置**
