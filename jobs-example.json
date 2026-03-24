@@ -16,7 +16,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "systemEvent",
-        "text": "现在是每日 09:30，请检查 syllabus.json 并下发今日例题。读取 skills/devil_ai_tutor/data/users/ 目录下的所有用户，通过 Telegram 或其他平台 @ 他们发送今日考题。提醒用户截止时间为 24:00。"
+        "text": "现在是每日 09:30，请检查 syllabus.json 并下发今日例题。读取 skills/devil_ai_tutor/data/users/ 目录下的所有用户，同时通过 Telegram（telegram_id）和微信（wechat_chat_id，不为 null 时）双渠道 @ 他们发送今日考题。提醒用户截止时间为 24:00。"
       },
       "state": {
         "nextRunAtMs": 1773797400000,
@@ -43,7 +43,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "systemEvent",
-        "text": "现在是每日 00:00 超时扣分时间。请先读取 skills/devil_ai_tutor/data/users/USER_FORMAT.md 了解字段含义，然后检查 skills/devil_ai_tutor/data/users/ 目录下的所有用户 JSON 文件。判断标准：如果用户的 daily_answered_date 不等于昨天的日期（YYYY-MM-DD），则视为昨天未答题。对未答题用户执行 -10 分扣分，更新 missed_days += 1，通过 Telegram 通知扣分结果。然后重置所有用户的每日状态：daily_answered = false, feynman_used_today = false（但不修改 daily_answered_date 和 feynman_used_date，保留历史记录）。"
+        "text": "现在是每日 00:00 超时扣分时间。请先读取 skills/devil_ai_tutor/data/users/USER_FORMAT.md 了解字段含义，然后检查 skills/devil_ai_tutor/data/users/ 目录下的所有用户 JSON 文件。判断标准：如果用户的 daily_answered_date 不等于昨天的日期（YYYY-MM-DD），则视为昨天未答题。对未答题用户执行 -10 分扣分，更新 missed_days += 1，同时通过 Telegram（telegram_id）和微信（wechat_chat_id，不为 null 时）双渠道通知扣分结果。然后重置所有用户的每日状态：daily_answered = false, feynman_used_today = false（但不修改 daily_answered_date 和 feynman_used_date，保留历史记录）。"
       },
       "state": {
         "nextRunAtMs": 1773763200000,
@@ -70,7 +70,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "systemEvent",
-        "text": "现在是周六 12:00，请根据本周学习内容生成一道综合实战设计题。读取 skills/devil_ai_tutor/data/users/ 目录下的所有用户，通过 Telegram 或其他平台 @ 他们发送周六大考题目。提醒截止时间为当日 24:00。"
+        "text": "现在是周六 12:00，请根据本周学习内容生成一道综合实战设计题。读取 skills/devil_ai_tutor/data/users/ 目录下的所有用户，同时通过 Telegram（telegram_id）和微信（wechat_chat_id，不为 null 时）双渠道 @ 他们发送周六大考题目。提醒截止时间为当日 24:00。"
       },
       "state": {
         "nextRunAtMs": 1774065600000,
@@ -97,7 +97,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "systemEvent",
-        "text": "现在是每日 20:00 提醒时间。请先读取 skills/devil_ai_tutor/data/users/USER_FORMAT.md 了解字段含义，然后检查 skills/devil_ai_tutor/data/users/ 目录下的所有用户 JSON 文件。判断标准：如果用户的 daily_answered_date 不等于今天的日期（YYYY-MM-DD），则视为今天未答题。对未答题用户通过 Telegram 发送提醒消息，提醒截止时间为 24:00，超时将扣 10 分。注意：此时仅提醒，不扣分，不修改任何字段。"
+        "text": "现在是每日 20:00 提醒时间。请先读取 skills/devil_ai_tutor/data/users/USER_FORMAT.md 了解字段含义，然后检查 skills/devil_ai_tutor/data/users/ 目录下的所有用户 JSON 文件。判断标准：如果用户的 daily_answered_date 不等于今天的日期（YYYY-MM-DD），则视为今天未答题。对未答题用户同时通过 Telegram（telegram_id）和微信（wechat_chat_id，不为 null 时）双渠道发送提醒消息，提醒截止时间为 24:00，超时将扣 10 分。注意：此时仅提醒，不扣分，不修改任何字段。"
       },
       "state": {
         "nextRunAtMs": 1773748800000,

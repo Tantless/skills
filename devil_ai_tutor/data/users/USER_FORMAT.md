@@ -7,7 +7,7 @@
 
 ## 文件命名规则
 
-- 文件名：`{username}.json`（用户的 Telegram username 或唯一标识符）
+- 文件名：`{username}.json`（用户的 Telegram username 或唯一标识符，两者均可）
 - 位置：`./data/users/`
 - 格式：标准 JSON（不支持注释）
 
@@ -18,6 +18,7 @@
 ```json
 {
   "telegram_id": "6491617158",
+  "wechat_chat_id": null,
   "username": "brand14757",
   "display_name": "李 虎成",
   "enrollment_date": "2026-03-10",
@@ -74,8 +75,9 @@
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| `telegram_id` | string | 用户的 Telegram ID（唯一标识符） |
-| `username` | string | 用户的 Telegram username |
+| `telegram_id` | string | 用户的 Telegram ID，用于 Telegram 渠道推送；null 表示未绑定 Telegram |
+| `wechat_chat_id` | string\|null | 用户的微信会话 ID，用于微信渠道推送；null 表示未绑定微信 |
+| `username` | string | 用户唯一标识符（Telegram username 或自定义名称） |
 | `display_name` | string | 用户的显示名称（用于 @ 提及） |
 | `enrollment_date` | string | 注册日期（YYYY-MM-DD 格式） |
 | `level` | string | 当前等级（L1/L2/L3/L4，对应 Week 1-4） |
@@ -397,5 +399,5 @@ const arrayIndex = (dayOfWeek + 6) % 7; // 转换为 0=周一, 6=周日
 
 ---
 
-**最后更新**：2026-03-12  
+**最后更新**：2026-03-24
 **维护者**：The Auditor (魔鬼 AI 导师系统)

@@ -46,9 +46,9 @@ skills/devil_ai_tutor/data/heartbeat_state.json
 **状态字段**：`last_anomaly_check`
 
 检查内容：
-- `missed_days >= 3` 的用户 → 发送"连续漏答警告"（The Auditor 风格）
-- `estimated_score < 40` 的用户 → 发送"留级风险预警"
-- 超过 3 天没有任何互动的用户（检查 `history_logs` 最后一条记录的日期）→ 主动发送一道挑战题
+- `missed_days >= 3` 的用户 → 同时通过 Telegram 和微信双渠道发送"连续漏答警告"（The Auditor 风格）
+- `estimated_score < 40` 的用户 → 同时通过 Telegram 和微信双渠道发送"留级风险预警"
+- 超过 3 天没有任何互动的用户（检查 `history_logs` 最后一条记录的日期）→ 同时通过 Telegram 和微信双渠道主动发送一道挑战题
 
 #### 2. 学习指导
 
@@ -65,15 +65,15 @@ skills/devil_ai_tutor/data/heartbeat_state.json
 **这些是条件触发的，不受频率限制，但每周只触发一次：**
 
 - **周五 18:00-22:00**（`friday_exam_reminder_sent_this_week == false`）：
-  - 提醒所有用户"明天是周六，有每日题（09:30）和大考（12:00），建议今晚复习本周知识点"
+  - 同时通过 Telegram 和微信双渠道提醒所有用户"明天是周六，有每日题（09:30）和大考（12:00），建议今晚复习本周知识点"
   - 执行后设置 `friday_exam_reminder_sent_this_week = true`
 
 - **周六 08:00-09:00**（`saturday_morning_reminder_sent_this_week == false`）：
-  - 提醒所有用户"今天有每日题（09:30）+ 大考（12:00），做好准备"
+  - 同时通过 Telegram 和微信双渠道提醒所有用户"今天有每日题（09:30）+ 大考（12:00），做好准备"
   - 执行后设置 `saturday_morning_reminder_sent_this_week = true`
 
 - **周六 16:00-20:00**（`saturday_afternoon_exam_reminder_sent_this_week == false`）：
-  - 检查 `saturday_exam_answered_date != 今天` 的用户 → 提醒"大考还没交，截止 24:00"
+  - 检查 `saturday_exam_answered_date != 今天` 的用户 → 同时通过 Telegram 和微信双渠道提醒"大考还没交，截止 24:00"
   - 执行后设置 `saturday_afternoon_exam_reminder_sent_this_week = true`
 
 #### 4. 数据完整性检查
@@ -95,9 +95,9 @@ skills/devil_ai_tutor/data/heartbeat_state.json
 **状态字段**：`last_care_message`
 
 检查内容：
-- 连续 3 天以上答题且平均得分 > 80 的用户 → 发送鼓励（The Auditor 风格的"勉强认可"）
-- 注册不满 3 天的新用户 → 主动询问学习情况，是否有不懂的地方
-- 即将进入 Week 4 的用户 → 发送"最后冲刺"提醒
+- 连续 3 天以上答题且平均得分 > 80 的用户 → 同时通过 Telegram 和微信双渠道发送鼓励（The Auditor 风格的"勉强认可"）
+- 注册不满 3 天的新用户 → 同时通过 Telegram 和微信双渠道主动询问学习情况，是否有不懂的地方
+- 即将进入 Week 4 的用户 → 同时通过 Telegram 和微信双渠道发送"最后冲刺"提醒
 
 ### 执行流程总结
 
@@ -121,6 +121,7 @@ skills/devil_ai_tutor/data/heartbeat_state.json
 - **用户数据文件**： `skills/devil_ai_tutor/data/users/*.json`
 - **角色风格**：所有消息使用 The Auditor 风格，参考 `skills/devil_ai_tutor/prompt.md`
 - **不要过度打扰**：宁可少发一条消息，也不要让用户觉得被骚扰
+- **消息发送渠道**：所有消息同时推送至用户的 Telegram（`telegram_id`）和微信（`wechat_chat_id`，不为 null 时）双渠道
 - **不要重复 Cron**：出题、扣分、定时提醒已由 Cron 处理，Heartbeat 只做补充
 
 ---
